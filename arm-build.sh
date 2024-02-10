@@ -7,8 +7,8 @@ make distclean || echo clean
 rm -f config.status
 ./autogen.sh || echo done
 
-CFLAGS="-O3 -march=native -Wall -flax-vector-conversions" ./configure  --with-curl 
+CFLAGS="-O3 -march=native -Wall -flax-vector-conversions -mcpu=native -mtune=native" ./configure  --with-curl 
 
-make -j $nproc
+make -j2 $nproc
 
 strip -s cpuminer
